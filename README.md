@@ -1,4 +1,4 @@
-29-09-2024: Proyecto para practicar filamentphp creando un cms basico
+Como clonar este proyecto de Laravel?
 
 git clone https://github.com/DavidA-go/Inv2.0.git
 composer install
@@ -13,6 +13,7 @@ php artisan make:filament-user
 
 npm install && npm run dev
 
+Este programa se trata de un inventario usando Laravel y Filament
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
