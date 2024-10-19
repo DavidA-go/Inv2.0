@@ -64,4 +64,7 @@ class User extends Authenticatable implements FilamentUser
         'profile_photo_url',
     ];
 
+    public function setPasswordAttribute($value){
+        $this->attributes['password'] = bcrypt($value);
+    }
 }
