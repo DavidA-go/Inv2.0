@@ -5,6 +5,8 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ComprasResource\Pages;
 use App\Filament\Resources\ComprasResource\RelationManagers;
 use App\Models\Compras;
+use App\Models\Productos;
+use App\Models\Proveedores;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -23,12 +25,16 @@ class ComprasResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('id_producto')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('id_proveedor')
-                    ->required()
-                    ->numeric(),
+                Forms\Components\Select::make('id_producto')
+                ->label('Productos')
+                ->options(
+                    Productos::all()->pluck('nombre', 'id')->toArray()
+                ),
+                Forms\Components\Select::make('id_proveedor')
+                ->label('Proveedores')
+                ->options(
+                    Proveedores::all()->pluck('nombre', 'id')->toArray()
+                ),
                 Forms\Components\TextInput::make('cantidad')
                     ->required()
                     ->numeric(),

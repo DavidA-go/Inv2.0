@@ -4,6 +4,8 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\VentasResource\Pages;
 use App\Filament\Resources\VentasResource\RelationManagers;
+use App\Models\Clientes;
+use App\Models\Productos;
 use App\Models\Ventas;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -56,12 +58,16 @@ class VentasResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('id_producto')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('id_cliente')
-                    ->numeric()
-                    ->sortable(),
+                Forms\Components\Select::make('id_producto')
+                    ->label('Productos')
+                    ->options(
+                        Productos::all()->pluck('nombre', 'id')->toArray()
+                    ),
+                Forms\Components\Select::make('id_cliente')
+                    ->label('Clientes')
+                    ->options(
+                        Clientes::all()->pluck('nombre', 'id')->toArray()
+                    ),
                 Tables\Columns\TextColumn::make('cantidad')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('precio_venta')
