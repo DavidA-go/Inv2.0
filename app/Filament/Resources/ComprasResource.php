@@ -62,10 +62,10 @@ class ComprasResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('id_producto')
+                Tables\Columns\TextColumn::make('productos.nombre')
                     ->numeric()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('id_proveedor')
+                Tables\Columns\TextColumn::make('proveedores.nombre')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('cantidad')

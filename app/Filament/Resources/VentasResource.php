@@ -25,12 +25,16 @@ class VentasResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('id_producto')
-                    ->required()
-                    ->numeric(),
-                Forms\Components\TextInput::make('id_cliente')
-                    ->required()
-                    ->numeric(),
+                Forms\Components\Select::make('id_producto')
+                    ->label('Productos')
+                    ->options(
+                        Productos::all()->pluck('nombre', 'id')->toArray()
+                    ),
+                Forms\Components\Select::make('id_cliente')
+                    ->label('Clientes')
+                    ->options(
+                        Clientes::all()->pluck('nombre', 'id')->toArray()
+                    ),
                 Forms\Components\TextInput::make('cantidad')
                     ->required()
                     ->maxLength(255),
@@ -58,16 +62,12 @@ class VentasResource extends Resource
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Forms\Components\Select::make('id_producto')
-                    ->label('Productos')
-                    ->options(
-                        Productos::all()->pluck('nombre', 'id')->toArray()
-                    ),
-                Forms\Components\Select::make('id_cliente')
-                    ->label('Clientes')
-                    ->options(
-                        Clientes::all()->pluck('nombre', 'id')->toArray()
-                    ),
+                Tables\Columns\TextColumn::make('productos.nombre')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('clientes.nombre')
+                    ->numeric()
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('cantidad')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('precio_venta')
