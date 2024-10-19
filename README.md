@@ -1,17 +1,17 @@
 Como clonar este proyecto de Laravel?
 
 git clone https://github.com/DavidA-go/Inv2.0.git
-composer install
-cp .env.example .env
-php artisan key:generate
+- composer install
+- cp .env.example .env
+- php artisan key:generate
 
 DB_CONNECTION=mysql DB_HOST=127.0.0.1 DB_PORT=3306 DB_DATABASE=nombre_de_tu_base_de_datos DB_USERNAME=tu_usuario DB_PASSWORD=tu_contraseña
 
-php artisan migrate
+- php artisan migrate
 
-php artisan make:filament-user
+- php artisan make:filament-user
 
-npm install && npm run dev
+- npm install && npm run dev
 
 Este programa se trata de un inventario usando Laravel y Filament
 
