@@ -1,3 +1,19 @@
+29-09-2024: Proyecto para practicar filamentphp creando un cms basico
+
+git clone https://github.com/DavidA-go/Inv2.0.git
+composer install
+cp .env.example .env
+php artisan key:generate
+
+DB_CONNECTION=mysql DB_HOST=127.0.0.1 DB_PORT=3306 DB_DATABASE=nombre_de_tu_base_de_datos DB_USERNAME=tu_usuario DB_PASSWORD=tu_contraseña
+
+php artisan migrate
+
+php artisan make:filament-user
+
+npm install && npm run dev
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
